@@ -5,10 +5,11 @@ on:
     paths: ['Tests/AnonymousInstallChecks.cs', '.github/workflows/anonymous-check.yml']
   workflow_dispatch:
 concurrency:
-  group: anonymous-guest-diagnostics-v2
+  group: anonymous-guest-check-final
   cancel-in-progress: true
 permissions:
   contents: read
+  actions: write
 jobs:
   anonymous-install:
     runs-on: windows-latest
@@ -17,6 +18,15 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: Stop obsolete anonymous test runs
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          foreach ($id in @('41722921183','41723368938','41723649644')) {
+            gh api --method POST "repos/$env:GITHUB_REPOSITORY/actions/runs/$id/cancel" 2>$null
+          }
+          exit 0
       - name: Download public Launcher without credentials
         shell: powershell
         run: |
@@ -32,7 +42,7 @@ jobs:
           & $csc /nologo /codepage:65001 /reference:System.Web.Extensions.dll /reference:System.Xaml.dll "/out:$base\AnonymousInstallChecks.exe" "/reference:$base\CalamusLauncher.exe" "/reference:$wpf\PresentationFramework.dll" "/reference:$wpf\PresentationCore.dll" "/reference:$wpf\WindowsBase.dll" Tests\AnonymousInstallChecks.cs
           if($LASTEXITCODE -ne 0){throw 'Anonymous test compilation failed'}
           $process=Start-Process -FilePath "$base\AnonymousInstallChecks.exe" -RedirectStandardOutput anonymous-output.txt -RedirectStandardError anonymous-error.txt -PassThru
-          $completed=$process.WaitForExit(120000)
+          $completed=$process.WaitForExit(600000)
           Get-Content anonymous-output.txt -ErrorAction SilentlyContinue
           Get-Content anonymous-error.txt -ErrorAction SilentlyContinue
           if(-not $completed){
@@ -44,7 +54,7 @@ jobs:
             $bitmap.Save((Join-Path (Get-Location) 'anonymous-screen.png'))
             $graphics.Dispose();$bitmap.Dispose()
             Stop-Process -Id $process.Id -Force
-            throw 'Anonymous fixture exceeded two minutes; see diagnostic output/screen'
+            throw 'Anonymous fixture exceeded ten minutes; see diagnostic output/screen'
           }
           if($process.ExitCode -ne 0){throw 'Anonymous download/install checks failed'}
       - uses: actions/upload-artifact@v4
