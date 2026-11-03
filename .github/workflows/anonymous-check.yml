@@ -1,0 +1,32 @@
+name: Real anonymous guest download and install checks
+on:
+  push:
+    branches: [main]
+    paths: ['Tests/AnonymousInstallChecks.cs', '.github/workflows/anonymous-check.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  anonymous-install:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Download public Launcher without credentials
+        shell: powershell
+        run: |
+          $url='https://github.com/CalamusClaro/Calamus-Launcher-Guest/releases/download/calamus-launcher-v0.6.0/CalamusLauncher_v0.6.0.zip'
+          Invoke-WebRequest -Uri $url -OutFile Launcher.zip -UseBasicParsing
+          Expand-Archive -LiteralPath Launcher.zip -DestinationPath Launcher
+      - name: Compile and run against the actual distributed Launcher
+        shell: powershell
+        run: |
+          $base=Join-Path (Get-Location) 'Launcher'
+          $csc=Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\csc.exe'
+          $wpf=Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\WPF'
+          & $csc /nologo /codepage:65001 /reference:System.Web.Extensions.dll /reference:System.Xaml.dll "/out:$base\AnonymousInstallChecks.exe" "/reference:$base\CalamusLauncher.exe" "/reference:$wpf\PresentationFramework.dll" "/reference:$wpf\PresentationCore.dll" "/reference:$wpf\WindowsBase.dll" Tests\AnonymousInstallChecks.cs
+          if($LASTEXITCODE -ne 0){throw 'Anonymous test compilation failed'}
+          & "$base\AnonymousInstallChecks.exe"
+          if($LASTEXITCODE -ne 0){throw 'Anonymous download/install checks failed'}
