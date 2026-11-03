@@ -21,16 +21,20 @@ class AnonymousInstallChecks {
    File.WriteAllText(Path.Combine(data,"access-v1.json"),"{\"Mode\":\"guest\",\"Repository\":\"CalamusClaro/Calamus-Launcher-Guest\"}");
    // Deliberately unreadable: anonymous operation must not try to decrypt it.
    File.WriteAllText(Path.Combine(data,"github-auth.dpapi"),"invalid-private-token-fixture");
+   SynchronizationContext.SetSynchronizationContext(new DispatcherSynchronizationContext(Dispatcher.CurrentDispatcher));
    window=new MainWindow(false);
+   Console.WriteLine("BEGIN: real guest catalogue request");
    var fetch=(Task<RemoteCatalog>)Call(window,"FetchRemoteCatalogAsync",false);Await(fetch);var catalog=fetch.Result;
    Check(catalog.Apps.Count==5&&catalog.Launcher.Version=="0.6.0","public catalogue loaded anonymously with five apps and Launcher 0.6.0");
    Call(window,"ApplyHomeCatalog",catalog);var state=(LauncherState)Field(window,"state");
    Check(state.Apps.Count==5&&state.Apps.All(a=>a.IsUninstalled),"fresh guest sees five installable cards");
    foreach(var package in catalog.Apps.Concat(new[]{catalog.Launcher})){
+    Console.WriteLine("BEGIN: download "+package.Id);
     var download=(Task<string>)Call(window,"DownloadVerifiedZipAsync",package);Await(download);string zip=download.Result;
     Check(File.Exists(zip),"anonymous verified download: "+package.Id);
     if(package.Id!="calamus-launcher"){
      var app=state.Apps.Single(a=>a.RemoteId==package.Id);
+     Console.WriteLine("BEGIN: install "+package.Id);
      Await((Task)Call(window,"InstallPackageAsync",zip,app,package));
      Check((bool)Call(window,"HasInstalledPayload",app),"installed launch entry exists: "+package.Id);
     }
