@@ -1,0 +1,100 @@
+{
+  "Imports": [
+    {
+      "ArtifactUrl": "https://sdmntprnortheu.oaiusercontent.com/files/00000000-0dbc-81f4-afa3-068fb90a997d/raw?se=2026-11-03T21%3A36%3A23Z&sp=r&sv=2026-02-06&sr=b&scid=c6f71725-1cb9-4ec8-8783-0363ca15e44b&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-03T04%3A22%3A51Z&ske=2026-11-04T04%3A22%3A51Z&sks=b&skv=2026-02-06&sig=gl9L2lpH4hAlpeelmAGXRDDfPYAtU%2Bcy7CQcQZhgkEM%3D",
+      "ArtifactSha256": "9ad49faa42ed377b92feb63b7196016c02e723093914624109dc813b10d4fba3",
+      "ArtifactEntry": "CalamusEmojiStudio_v0.2.4.zip",
+      "Package": {
+        "Id": "calamus-emoji-studio",
+        "Name": "Emoji Studio",
+        "Version": "0.2.4",
+        "Repository": "CalamusClaro/Calamus-Launcher-Guest",
+        "Tag": "calamus-emoji-studio-v0.2.4",
+        "Asset": "CalamusEmojiStudio_v0.2.4.zip",
+        "Sha256": "d651ef317b63982ae3ba2a3bf6a81f21a7afb2c8c5d81dbceb9e60125e032f09",
+        "Entry": "CalamusEmojiStudio.exe",
+        "Description": "Windows emoji, symbols and letters picker"
+      }
+    },
+    {
+      "ArtifactUrl": "https://sdmntprpolandcentral.oaiusercontent.com/files/00000000-070c-820a-997e-5a270c32bfe4/raw?se=2026-11-03T21%3A36%3A19Z&sp=r&sv=2026-02-06&sr=b&scid=c6f71725-1cb9-4ec8-8783-0363ca15e44b&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-03T05%3A37%3A58Z&ske=2026-11-04T05%3A37%3A58Z&sks=b&skv=2026-02-06&sig=5D7X85A4Nk36CDbs6Yujy%2BxIgEysp/CT4/FRtX5vBtI%3D",
+      "ArtifactSha256": "8a6e600b73a4b9eee58348045ff7b4e5a0faf770dcf8df7e4e15a8eaf4ff1624",
+      "ArtifactEntry": "CalamusCapture_v0.2.1.zip",
+      "Package": {
+        "Id": "calamus-capture",
+        "Name": "Calamus Capture",
+        "Version": "0.2.1",
+        "Repository": "CalamusClaro/Calamus-Launcher-Guest",
+        "Tag": "calamus-capture-v0.2.1",
+        "Asset": "CalamusCapture_v0.2.1.zip",
+        "Sha256": "47362fec29732e3c20b03de5a074ee942570ca4e9f3c68ea4ff7c8e41e86a4b5",
+        "Entry": "CalamusCapture.exe",
+        "Description": "Offline screen capture, annotations and Windows OCR"
+      }
+    },
+    {
+      "ArtifactUrl": "https://sdmntprnortheu.oaiusercontent.com/files/00000000-f29c-81f4-bb2b-3c1fea64b003/raw?se=2026-11-03T21%3A36%3A24Z&sp=r&sv=2026-02-06&sr=b&scid=c6f71725-1cb9-4ec8-8783-0363ca15e44b&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-03T03%3A51%3A35Z&ske=2026-11-04T03%3A51%3A35Z&sks=b&skv=2026-02-06&sig=h4082xb4Mhn48JFNLC/tMEpmBPC6iLkvXp/R3TW0XIg%3D",
+      "ArtifactSha256": "4218dd0eb92b5768c7f4343b96df42d32c9ad43d7178f576983fdebfe2f34c57",
+      "ArtifactEntry": "SlayerLog/SlayerLog/SlayerLog_v0.1.4.zip",
+      "Package": {
+        "Id": "slayerlog",
+        "Name": "SlayerLog",
+        "Version": "0.1.4",
+        "Repository": "CalamusClaro/Calamus-Launcher-Guest",
+        "Tag": "slayerlog-v0.1.4",
+        "Asset": "SlayerLog_v0.1.4.zip",
+        "Sha256": "c4b6e9bb05f26b8a56d669c95a19b7cbe3d899f1f240131740b66d8f92d4e5c1",
+        "Entry": "SlayerLog.exe",
+        "Description": "Offline workout planner, training sessions and progress"
+      }
+    },
+    {
+      "ArtifactUrl": "https://sdmntprnortheu.oaiusercontent.com/files/00000000-7a34-81f4-8af5-acc030f083f9/raw?se=2026-11-03T21%3A36%3A20Z&sp=r&sv=2026-02-06&sr=b&scid=c6f71725-1cb9-4ec8-8783-0363ca15e44b&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-03T04%3A34%3A55Z&ske=2026-11-04T04%3A34%3A55Z&sks=b&skv=2026-02-06&sig=WMyZ8Rbu7UkTbBVkRVZshepxmqtIk/ql%2BQchJf1gAoU%3D",
+      "ArtifactSha256": "9cde019ce5861f9a8cc07685979a76df8e2a21bd64e980567b43e85a96b0c261",
+      "ArtifactEntry": "Calamus-Whisper/Calamus-Whisper/CalamusWhisper_v1.8.4.zip",
+      "Package": {
+        "Id": "calamus-whisper",
+        "Name": "Calamus Whisper",
+        "Version": "1.8.4",
+        "Repository": "CalamusClaro/Calamus-Launcher-Guest",
+        "Tag": "calamus-whisper-v1.8.4",
+        "Asset": "CalamusWhisper_v1.8.4.zip",
+        "Sha256": "37439f262aa660b537ff405f926932675b496955e810997cf3b89a1ff13b527d",
+        "Entry": "CalamusWhisper.exe",
+        "Description": "Voice studio using the existing Python and CUDA environment"
+      }
+    },
+    {
+      "ArtifactUrl": "https://sdmntprnortheu.oaiusercontent.com/files/00000000-df78-81f4-ae6b-c328588d8915/raw?se=2026-11-03T21%3A36%3A19Z&sp=r&sv=2026-02-06&sr=b&scid=c6f71725-1cb9-4ec8-8783-0363ca15e44b&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-03T04%3A34%3A54Z&ske=2026-11-04T04%3A34%3A54Z&sks=b&skv=2026-02-06&sig=3im5ZQa7AdvJgQzaiYFvt8PkkG/bnoI%2BaWMsMPHaAEs%3D",
+      "ArtifactSha256": "7bb3ca176d6d0b24305d2701c3c0964a98a62f3d68db5229381bb219a5757819",
+      "ArtifactEntry": "CalamusProxyClient_v0.2.0.5.zip",
+      "Package": {
+        "Asset": "CalamusProxyClient_v0.2.0.5.zip",
+        "Entry": "CalamusProxyClient.exe",
+        "Version": "0.2.0.5",
+        "Repository": "CalamusClaro/Calamus-Launcher-Guest",
+        "Name": "Calamus ProxyClient",
+        "Sha256": "3c72b07d9d3573599ff4f17a3487d79ffb25f30d9fdbed896685c141bb3f8f4d",
+        "Description": "Local proxy client and Chrome routing extension",
+        "Id": "calamus-proxy",
+        "Tag": "calamus-proxy-v0.2.0.5"
+      }
+    },
+    {
+      "ArtifactUrl": "https://sdmntprnortheu.oaiusercontent.com/files/00000000-d9e8-81f4-acc4-061a350ac884/raw?se=2026-11-03T21%3A36%3A19Z&sp=r&sv=2026-02-06&sr=b&scid=c6f71725-1cb9-4ec8-8783-0363ca15e44b&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-03T03%3A35%3A42Z&ske=2026-11-04T03%3A35%3A42Z&sks=b&skv=2026-02-06&sig=%2BOgX0pA0b63GSDftetvTLjrnZ3ptMMJytV9IVfeKCtk%3D",
+      "ArtifactSha256": "8a380281798b6d25d277c30b2e6b5c2846e5e0af05d7e1bede5c433e878a67c2",
+      "ArtifactEntry": "CalamusLauncher_v0.6.0.zip",
+      "Package": {
+        "Id": "calamus-launcher",
+        "Name": "Calamus Launcher",
+        "Version": "0.6.0",
+        "Repository": "CalamusClaro/Calamus-Launcher-Guest",
+        "Tag": "calamus-launcher-v0.6.0",
+        "Asset": "CalamusLauncher_v0.6.0.zip",
+        "Sha256": "042a059408ce2e9b2beb708cceb9d3646b48a3629119e6adadf4665cab7b8f55",
+        "Entry": "CalamusLauncher.exe",
+        "Description": "Guest catalogue and author token access"
+      }
+    }
+  ]
+}
