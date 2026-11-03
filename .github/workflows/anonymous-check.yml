@@ -5,7 +5,7 @@ on:
     paths: ['Tests/AnonymousInstallChecks.cs', '.github/workflows/anonymous-check.yml']
   workflow_dispatch:
 concurrency:
-  group: anonymous-guest-check
+  group: anonymous-guest-diagnostics-v2
   cancel-in-progress: true
 permissions:
   contents: read
