@@ -31,5 +31,27 @@ jobs:
           $wpf=Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\WPF'
           & $csc /nologo /codepage:65001 /reference:System.Web.Extensions.dll /reference:System.Xaml.dll "/out:$base\AnonymousInstallChecks.exe" "/reference:$base\CalamusLauncher.exe" "/reference:$wpf\PresentationFramework.dll" "/reference:$wpf\PresentationCore.dll" "/reference:$wpf\WindowsBase.dll" Tests\AnonymousInstallChecks.cs
           if($LASTEXITCODE -ne 0){throw 'Anonymous test compilation failed'}
-          & "$base\AnonymousInstallChecks.exe"
-          if($LASTEXITCODE -ne 0){throw 'Anonymous download/install checks failed'}
+          $process=Start-Process -FilePath "$base\AnonymousInstallChecks.exe" -RedirectStandardOutput anonymous-output.txt -RedirectStandardError anonymous-error.txt -PassThru
+          $completed=$process.WaitForExit(120000)
+          Get-Content anonymous-output.txt -ErrorAction SilentlyContinue
+          Get-Content anonymous-error.txt -ErrorAction SilentlyContinue
+          if(-not $completed){
+            Add-Type -AssemblyName System.Windows.Forms,System.Drawing
+            $screen=[System.Windows.Forms.Screen]::PrimaryScreen.Bounds
+            $bitmap=New-Object System.Drawing.Bitmap($screen.Width,$screen.Height)
+            $graphics=[System.Drawing.Graphics]::FromImage($bitmap)
+            $graphics.CopyFromScreen($screen.Location,[System.Drawing.Point]::Empty,$screen.Size)
+            $bitmap.Save((Join-Path (Get-Location) 'anonymous-screen.png'))
+            $graphics.Dispose();$bitmap.Dispose()
+            Stop-Process -Id $process.Id -Force
+            throw 'Anonymous fixture exceeded two minutes; see diagnostic output/screen'
+          }
+          if($process.ExitCode -ne 0){throw 'Anonymous download/install checks failed'}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Anonymous-guest-verification
+          path: |
+            anonymous-output.txt
+            anonymous-error.txt
+            anonymous-screen.png
