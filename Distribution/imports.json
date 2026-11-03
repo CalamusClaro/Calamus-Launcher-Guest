@@ -1,7 +1,6 @@
 {
   "Imports": [
     {
-      "ArtifactUrl": "https://sdmntprnortheu.oaiusercontent.com/files/00000000-0dbc-81f4-afa3-068fb90a997d/raw?se=2026-11-03T21%3A36%3A23Z&sp=r&sv=2026-02-06&sr=b&scid=c6f71725-1cb9-4ec8-8783-0363ca15e44b&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-03T04%3A22%3A51Z&ske=2026-11-04T04%3A22%3A51Z&sks=b&skv=2026-02-06&sig=gl9L2lpH4hAlpeelmAGXRDDfPYAtU%2Bcy7CQcQZhgkEM%3D",
       "ArtifactSha256": "9ad49faa42ed377b92feb63b7196016c02e723093914624109dc813b10d4fba3",
       "ArtifactEntry": "CalamusEmojiStudio_v0.2.4.zip",
       "Package": {
@@ -17,7 +16,6 @@
       }
     },
     {
-      "ArtifactUrl": "https://sdmntprpolandcentral.oaiusercontent.com/files/00000000-070c-820a-997e-5a270c32bfe4/raw?se=2026-11-03T21%3A36%3A19Z&sp=r&sv=2026-02-06&sr=b&scid=c6f71725-1cb9-4ec8-8783-0363ca15e44b&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-03T05%3A37%3A58Z&ske=2026-11-04T05%3A37%3A58Z&sks=b&skv=2026-02-06&sig=5D7X85A4Nk36CDbs6Yujy%2BxIgEysp/CT4/FRtX5vBtI%3D",
       "ArtifactSha256": "8a6e600b73a4b9eee58348045ff7b4e5a0faf770dcf8df7e4e15a8eaf4ff1624",
       "ArtifactEntry": "CalamusCapture_v0.2.1.zip",
       "Package": {
@@ -33,7 +31,6 @@
       }
     },
     {
-      "ArtifactUrl": "https://sdmntprnortheu.oaiusercontent.com/files/00000000-f29c-81f4-bb2b-3c1fea64b003/raw?se=2026-11-03T21%3A36%3A24Z&sp=r&sv=2026-02-06&sr=b&scid=c6f71725-1cb9-4ec8-8783-0363ca15e44b&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-03T03%3A51%3A35Z&ske=2026-11-04T03%3A51%3A35Z&sks=b&skv=2026-02-06&sig=h4082xb4Mhn48JFNLC/tMEpmBPC6iLkvXp/R3TW0XIg%3D",
       "ArtifactSha256": "4218dd0eb92b5768c7f4343b96df42d32c9ad43d7178f576983fdebfe2f34c57",
       "ArtifactEntry": "SlayerLog/SlayerLog/SlayerLog_v0.1.4.zip",
       "Package": {
@@ -49,7 +46,6 @@
       }
     },
     {
-      "ArtifactUrl": "https://sdmntprnortheu.oaiusercontent.com/files/00000000-7a34-81f4-8af5-acc030f083f9/raw?se=2026-11-03T21%3A36%3A20Z&sp=r&sv=2026-02-06&sr=b&scid=c6f71725-1cb9-4ec8-8783-0363ca15e44b&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-03T04%3A34%3A55Z&ske=2026-11-04T04%3A34%3A55Z&sks=b&skv=2026-02-06&sig=WMyZ8Rbu7UkTbBVkRVZshepxmqtIk/ql%2BQchJf1gAoU%3D",
       "ArtifactSha256": "9cde019ce5861f9a8cc07685979a76df8e2a21bd64e980567b43e85a96b0c261",
       "ArtifactEntry": "Calamus-Whisper/Calamus-Whisper/CalamusWhisper_v1.8.4.zip",
       "Package": {
@@ -65,7 +61,6 @@
       }
     },
     {
-      "ArtifactUrl": "https://sdmntprnortheu.oaiusercontent.com/files/00000000-df78-81f4-ae6b-c328588d8915/raw?se=2026-11-03T21%3A36%3A19Z&sp=r&sv=2026-02-06&sr=b&scid=c6f71725-1cb9-4ec8-8783-0363ca15e44b&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-03T04%3A34%3A54Z&ske=2026-11-04T04%3A34%3A54Z&sks=b&skv=2026-02-06&sig=3im5ZQa7AdvJgQzaiYFvt8PkkG/bnoI%2BaWMsMPHaAEs%3D",
       "ArtifactSha256": "7bb3ca176d6d0b24305d2701c3c0964a98a62f3d68db5229381bb219a5757819",
       "ArtifactEntry": "CalamusProxyClient_v0.2.0.5.zip",
       "Package": {
@@ -81,7 +76,6 @@
       }
     },
     {
-      "ArtifactUrl": "https://sdmntprnortheu.oaiusercontent.com/files/00000000-d9e8-81f4-acc4-061a350ac884/raw?se=2026-11-03T21%3A36%3A19Z&sp=r&sv=2026-02-06&sr=b&scid=c6f71725-1cb9-4ec8-8783-0363ca15e44b&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-03T03%3A35%3A42Z&ske=2026-11-04T03%3A35%3A42Z&sks=b&skv=2026-02-06&sig=%2BOgX0pA0b63GSDftetvTLjrnZ3ptMMJytV9IVfeKCtk%3D",
       "ArtifactSha256": "8a380281798b6d25d277c30b2e6b5c2846e5e0af05d7e1bede5c433e878a67c2",
       "ArtifactEntry": "CalamusLauncher_v0.6.0.zip",
       "Package": {

@@ -40,6 +40,9 @@ def main():
     ids = [item['Package']['Id'] for item in imports]
     if set(ids) != IDS or len(ids) != len(IDS):
         raise ValueError('Exactly the five approved apps and Launcher are required')
+    if not all(item.get('ArtifactUrl') for item in imports):
+        print('Transfer URLs removed after successful publication. Existing releases remain available; provide fresh approved imports for another publication.', flush=True)
+        return
     staging = Path(tempfile.mkdtemp(prefix='CalamusGuest-'))
     for item in imports:
         package = item['Package']
