@@ -1,0 +1,71 @@
+{
+  "Schema": 2,
+  "Launcher": {
+    "Id": "calamus-launcher",
+    "Name": "Calamus Launcher",
+    "Version": "0.6.0",
+    "Repository": "CalamusClaro/Calamus-Launcher-Guest",
+    "Tag": "calamus-launcher-v0.6.0",
+    "Asset": "CalamusLauncher_v0.6.0.zip",
+    "Sha256": "042a059408ce2e9b2beb708cceb9d3646b48a3629119e6adadf4665cab7b8f55",
+    "Entry": "CalamusLauncher.exe",
+    "Description": "Guest catalogue and author token access"
+  },
+  "Apps": [
+    {
+      "Id": "calamus-emoji-studio",
+      "Name": "Emoji Studio",
+      "Version": "0.2.4",
+      "Repository": "CalamusClaro/Calamus-Launcher-Guest",
+      "Tag": "calamus-emoji-studio-v0.2.4",
+      "Asset": "CalamusEmojiStudio_v0.2.4.zip",
+      "Sha256": "d651ef317b63982ae3ba2a3bf6a81f21a7afb2c8c5d81dbceb9e60125e032f09",
+      "Entry": "CalamusEmojiStudio.exe",
+      "Description": "Windows emoji, symbols and letters picker"
+    },
+    {
+      "Id": "calamus-capture",
+      "Name": "Calamus Capture",
+      "Version": "0.2.1",
+      "Repository": "CalamusClaro/Calamus-Launcher-Guest",
+      "Tag": "calamus-capture-v0.2.1",
+      "Asset": "CalamusCapture_v0.2.1.zip",
+      "Sha256": "47362fec29732e3c20b03de5a074ee942570ca4e9f3c68ea4ff7c8e41e86a4b5",
+      "Entry": "CalamusCapture.exe",
+      "Description": "Offline screen capture, annotations and Windows OCR"
+    },
+    {
+      "Id": "slayerlog",
+      "Name": "SlayerLog",
+      "Version": "0.1.4",
+      "Repository": "CalamusClaro/Calamus-Launcher-Guest",
+      "Tag": "slayerlog-v0.1.4",
+      "Asset": "SlayerLog_v0.1.4.zip",
+      "Sha256": "c4b6e9bb05f26b8a56d669c95a19b7cbe3d899f1f240131740b66d8f92d4e5c1",
+      "Entry": "SlayerLog.exe",
+      "Description": "Offline workout planner, training sessions and progress"
+    },
+    {
+      "Id": "calamus-whisper",
+      "Name": "Calamus Whisper",
+      "Version": "1.8.4",
+      "Repository": "CalamusClaro/Calamus-Launcher-Guest",
+      "Tag": "calamus-whisper-v1.8.4",
+      "Asset": "CalamusWhisper_v1.8.4.zip",
+      "Sha256": "37439f262aa660b537ff405f926932675b496955e810997cf3b89a1ff13b527d",
+      "Entry": "CalamusWhisper.exe",
+      "Description": "Voice studio using the existing Python and CUDA environment"
+    },
+    {
+      "Asset": "CalamusProxyClient_v0.2.0.5.zip",
+      "Entry": "CalamusProxyClient.exe",
+      "Version": "0.2.0.5",
+      "Repository": "CalamusClaro/Calamus-Launcher-Guest",
+      "Name": "Calamus ProxyClient",
+      "Sha256": "3c72b07d9d3573599ff4f17a3487d79ffb25f30d9fdbed896685c141bb3f8f4d",
+      "Description": "Local proxy client and Chrome routing extension",
+      "Id": "calamus-proxy",
+      "Tag": "calamus-proxy-v0.2.0.5"
+    }
+  ]
+}
