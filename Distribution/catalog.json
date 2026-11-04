@@ -1,16 +1,6 @@
 {
   "Schema": 2,
-  "Launcher": {
-    "Id": "calamus-launcher",
-    "Name": "Calamus Launcher",
-    "Version": "0.7.2",
-    "Repository": "CalamusClaro/Calamus-Launcher-Guest",
-    "Tag": "calamus-launcher-v0.7.2",
-    "Asset": "CalamusLauncher_v0.7.2.zip",
-    "Sha256": "b644cdf885781c330646bde54991fac6ccb57bf6fb3b38d7c9b3c1685ec4af7d",
-    "Entry": "CalamusLauncher.exe",
-    "Description": "Public guest Launcher update"
-  },
+  "Launcher": null,
   "Apps": [
     {
       "Id": "calamus-emoji-studio",
