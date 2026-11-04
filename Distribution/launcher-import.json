@@ -12,7 +12,6 @@
         "Entry": "CalamusLauncher.exe",
         "Description": "Public guest Launcher update"
       },
-      "ArtifactUrl": "https://sdmntpritalynorth.oaiusercontent.com/files/00000000-0d90-8246-acb5-3593f4691b23/raw?se=2026-11-04T17%3A03%3A27Z&sp=r&sv=2026-02-06&sr=b&scid=5546b34b-d5e1-4766-8227-1dc4f57ade3c&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-04T02%3A49%3A20Z&ske=2026-11-05T02%3A49%3A20Z&sks=b&skv=2026-02-06&sig=EVHHMpFJcuz3hRE5VYMranbKD0vCyagAtR0FF48FtWY%3D",
       "ArtifactSha256": "ad8f4eb844c7af2866699269a12ab9a490c408cef101b1e2e0ac4907a9a01ef8",
       "ArtifactEntry": "CalamusLauncher_v0.7.2.zip"
     }
