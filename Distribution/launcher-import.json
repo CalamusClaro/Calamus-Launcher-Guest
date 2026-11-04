@@ -4,16 +4,17 @@
       "Package": {
         "Id": "calamus-launcher",
         "Name": "Calamus Launcher",
-        "Version": "0.7.2",
+        "Version": "0.7.3",
         "Repository": "CalamusClaro/Calamus-Launcher-Guest",
-        "Tag": "calamus-launcher-v0.7.2",
-        "Asset": "CalamusLauncher_v0.7.2.zip",
-        "Sha256": "b644cdf885781c330646bde54991fac6ccb57bf6fb3b38d7c9b3c1685ec4af7d",
+        "Tag": "calamus-launcher-v0.7.3",
+        "Asset": "CalamusLauncher_v0.7.3.zip",
+        "Sha256": "c087c116bb3e8b5d5fc0061f48721ddea5f38fa3d38efc196153ddba8b636828",
         "Entry": "CalamusLauncher.exe",
         "Description": "Public guest Launcher update"
       },
-      "ArtifactSha256": "ad8f4eb844c7af2866699269a12ab9a490c408cef101b1e2e0ac4907a9a01ef8",
-      "ArtifactEntry": "CalamusLauncher_v0.7.2.zip"
+      "ArtifactUrl": "https://sdmntprnortheu.oaiusercontent.com/files/00000000-fc74-81f4-b62a-57bd9e5f8afb/raw?se=2026-11-04T17%3A31%3A11Z&sp=r&sv=2026-02-06&sr=b&scid=50db13cd-8f67-4c33-b4bc-f4340f5b451a&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-04T05%3A10%3A47Z&ske=2026-11-05T05%3A10%3A47Z&sks=b&skv=2026-02-06&sig=vo4eGMeA9I9hFm4/10L%2BeizbSQCB3hUY4gI88cW8LdU%3D",
+      "ArtifactSha256": "25114d2be46814eb979cb3cc1d14b53f0ab91c5d0650cffcc6a9e715b35b3055",
+      "ArtifactEntry": "CalamusLauncher_v0.7.3.zip"
     }
   ]
 }
