@@ -1,0 +1,9 @@
+{
+  "Imports": [
+    {
+      "Package": {
+        "Id": "calamus-launcher"
+      }
+    }
+  ]
+}

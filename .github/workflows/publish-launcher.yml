@@ -1,0 +1,23 @@
+name: Publish verified Launcher update
+on:
+  push:
+    branches: [main]
+    paths: ['Distribution/launcher-import.json', 'scripts/publish_launcher.py', '.github/workflows/publish-launcher.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: guest-launcher-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/publish_launcher.py
