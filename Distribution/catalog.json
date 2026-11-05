@@ -57,15 +57,15 @@
       "Description": "Voice studio using the existing Python and CUDA environment"
     },
     {
-      "Asset": "CalamusProxyClient_v0.2.0.5.zip",
-      "Entry": "CalamusProxyClient.exe",
-      "Version": "0.2.0.5",
-      "Repository": "CalamusClaro/Calamus-Launcher-Guest",
-      "Name": "Calamus ProxyClient",
-      "Sha256": "3c72b07d9d3573599ff4f17a3487d79ffb25f30d9fdbed896685c141bb3f8f4d",
       "Description": "Local proxy client and Chrome routing extension",
       "Id": "calamus-proxy",
-      "Tag": "calamus-proxy-v0.2.0.5"
+      "Version": "0.2.0.6",
+      "Repository": "CalamusClaro/Calamus-Launcher-Guest",
+      "Name": "Calamus ProxyClient",
+      "Sha256": "704c55d66706a2f0017647e17f3a316effedf201cab34fc94a83dae360e9b6c9",
+      "Tag": "calamus-proxy-v0.2.0.6",
+      "Entry": "CalamusProxyClient.exe",
+      "Asset": "CalamusProxyClient_v0.2.0.6.zip"
     }
   ]
 }
