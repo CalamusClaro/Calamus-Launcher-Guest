@@ -15,11 +15,11 @@
     {
       "Id": "calamus-emoji-studio",
       "Name": "Emoji Studio",
-      "Version": "0.2.4",
+      "Version": "0.2.6",
       "Repository": "CalamusClaro/Calamus-Launcher-Guest",
-      "Tag": "calamus-emoji-studio-v0.2.4",
-      "Asset": "CalamusEmojiStudio_v0.2.4.zip",
-      "Sha256": "d651ef317b63982ae3ba2a3bf6a81f21a7afb2c8c5d81dbceb9e60125e032f09",
+      "Tag": "calamus-emoji-studio-v0.2.6",
+      "Asset": "CalamusEmojiStudio_v0.2.6.zip",
+      "Sha256": "9303b18b1c578e60f6d348de5772c75755029dff05f9203b9bb793f08ca20717",
       "Entry": "CalamusEmojiStudio.exe",
       "Description": "Windows emoji, symbols and letters picker"
     },

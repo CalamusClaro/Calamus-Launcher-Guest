@@ -12,7 +12,6 @@
         "Entry": "CalamusEmojiStudio.exe",
         "Description": "Windows emoji, symbols and letters picker"
       },
-      "ArtifactUrl": "https://sdmntprdenmarkeast.oaiusercontent.com/files/00000000-5900-8210-81fb-334c8d911e4b/raw?se=2026-11-05T20%3A02%3A18Z&sp=r&sv=2026-02-06&sr=b&scid=c194a26b-3c26-456e-ab82-a86e7cead573&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-05T04%3A25%3A07Z&ske=2026-11-06T04%3A25%3A07Z&sks=b&skv=2026-02-06&sig=09E0N042gJ8RRo/jJKUmzlKxvOBKHtPdEMiHHdSzero%3D",
       "ArtifactSha256": "bd3dcc99dfdd62f7f11d7a809d8f541d528e18a73bad9cde298ed642e7d66274",
       "ArtifactEntry": "CalamusEmojiStudio_v0.2.6.zip"
     }
