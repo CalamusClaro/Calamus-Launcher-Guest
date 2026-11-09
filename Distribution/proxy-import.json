@@ -4,16 +4,17 @@
       "Package": {
         "Description": "Local proxy client and Chrome routing extension",
         "Id": "calamus-proxy",
-        "Version": "0.2.0.6",
+        "Version": "0.2.0.7",
         "Repository": "CalamusClaro/Calamus-Launcher-Guest",
         "Name": "Calamus ProxyClient",
-        "Sha256": "704c55d66706a2f0017647e17f3a316effedf201cab34fc94a83dae360e9b6c9",
-        "Tag": "calamus-proxy-v0.2.0.6",
+        "Sha256": "710e6a51385977daf5d42a19209edd387d8818b4b916c28d64adff3604f9f32d",
+        "Tag": "calamus-proxy-v0.2.0.7",
         "Entry": "CalamusProxyClient.exe",
-        "Asset": "CalamusProxyClient_v0.2.0.6.zip"
+        "Asset": "CalamusProxyClient_v0.2.0.7.zip"
       },
-      "ArtifactEntry": "CalamusProxyClient_v0.2.0.6.zip",
-      "ArtifactSha256": "bdeb4fca03404a4eb945d7b7f1fbc772bd2ca6d57dc2a26cdcf0a3ee5ab7791e"
+      "ArtifactUrl": "https://sdmntprnortheu.oaiusercontent.com/files/00000000-da58-81f4-bcef-2965dd46bc1f/raw?se=2026-11-09T20%3A31%3A19Z&sp=r&sv=2026-02-06&sr=b&scid=441fbcc5-fd5c-4770-a4e7-cfa24626f0b4&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-09T04%3A05%3A02Z&ske=2026-11-10T04%3A05%3A02Z&sks=b&skv=2026-02-06&sig=XNAQc52GoP%2BTs8TwBMmckHAHrGnjKdU9kMnOW4nMA2A%3D",
+      "ArtifactSha256": "2765f2fe374bacb061592b64e9d193c3f8a758016baf2d537d71940acd537123",
+      "ArtifactEntry": "CalamusProxyClient_v0.2.0.7.zip"
     }
   ]
 }
