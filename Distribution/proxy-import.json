@@ -12,7 +12,6 @@
         "Entry": "CalamusProxyClient.exe",
         "Asset": "CalamusProxyClient_v0.2.0.7.zip"
       },
-      "ArtifactUrl": "https://sdmntprnortheu.oaiusercontent.com/files/00000000-da58-81f4-bcef-2965dd46bc1f/raw?se=2026-11-09T20%3A31%3A19Z&sp=r&sv=2026-02-06&sr=b&scid=441fbcc5-fd5c-4770-a4e7-cfa24626f0b4&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-09T04%3A05%3A02Z&ske=2026-11-10T04%3A05%3A02Z&sks=b&skv=2026-02-06&sig=XNAQc52GoP%2BTs8TwBMmckHAHrGnjKdU9kMnOW4nMA2A%3D",
       "ArtifactSha256": "2765f2fe374bacb061592b64e9d193c3f8a758016baf2d537d71940acd537123",
       "ArtifactEntry": "CalamusProxyClient_v0.2.0.7.zip"
     }

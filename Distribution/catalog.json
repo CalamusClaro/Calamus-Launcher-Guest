@@ -59,13 +59,13 @@
     {
       "Description": "Local proxy client and Chrome routing extension",
       "Id": "calamus-proxy",
-      "Version": "0.2.0.6",
+      "Version": "0.2.0.7",
       "Repository": "CalamusClaro/Calamus-Launcher-Guest",
       "Name": "Calamus ProxyClient",
-      "Sha256": "704c55d66706a2f0017647e17f3a316effedf201cab34fc94a83dae360e9b6c9",
-      "Tag": "calamus-proxy-v0.2.0.6",
+      "Sha256": "710e6a51385977daf5d42a19209edd387d8818b4b916c28d64adff3604f9f32d",
+      "Tag": "calamus-proxy-v0.2.0.7",
       "Entry": "CalamusProxyClient.exe",
-      "Asset": "CalamusProxyClient_v0.2.0.6.zip"
+      "Asset": "CalamusProxyClient_v0.2.0.7.zip"
     }
   ]
 }
