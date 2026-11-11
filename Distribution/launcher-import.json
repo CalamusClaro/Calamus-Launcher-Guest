@@ -2,33 +2,19 @@
   "Imports": [
     {
       "Package": {
-        "Id": "calamus-launcher",
-        "Name": "Calamus Launcher",
-        "Version": "0.7.5",
-        "Tag": "calamus-launcher-v0.7.5",
-        "Entry": "CalamusLauncher.exe",
-        "Description": "Public guest Launcher update",
-        "Repository": "CalamusClaro/Calamus-Launcher-Guest",
-        "Asset": "CalamusLauncher_v0.7.5.zip",
-        "Sha256": "401b9725049fc4ccd54b3841fa392665c64d21add2bc527e6cb3d04c12bbf002"
-      },
-      "ArtifactSha256": "86f86b24e43bcf9705e28531fdb26e39ac88ee9e68235d58a7f915d4a4ac2a87",
-      "ArtifactEntry": "CalamusLauncher_v0.7.5.zip"
-    },
-    {
-      "Package": {
         "Id": "calamus-transfer",
         "Name": "Calamus Transfer",
-        "Version": "0.1.0",
-        "Tag": "calamus-transfer-v0.1.0",
+        "Version": "0.1.1",
+        "Tag": "calamus-transfer-v0.1.1",
         "Entry": "CalamusTransfer/CalamusTransfer.exe",
-        "Description": "\u041f\u0440\u044f\u043c\u0430\u044f \u043f\u0435\u0440\u0435\u0434\u0430\u0447\u0430 \u0444\u0430\u0439\u043b\u043e\u0432 \u0438 \u043f\u0430\u043f\u043e\u043a \u043f\u043e TLS",
+        "Description": "Передача файлов по IP или через Tailscale",
         "Repository": "CalamusClaro/Calamus-Launcher-Guest",
-        "Asset": "CalamusTransfer_v0.1.0.zip",
-        "Sha256": "06516f566051ecb63fb480f1c913db70a77c8f5f8f9e2aebe05756b38bddf828"
+        "Asset": "CalamusTransfer_v0.1.1.zip",
+        "Sha256": "ed990562cecac8e6db2b142631fee91d03ed3ac6068beea0aa7e8d17adc859dc"
       },
-      "ArtifactSha256": "098acbd40d1233dc970bf11dd35de3b9139ce1afed0cdcf93d8450eadce4cfe1",
-      "ArtifactEntry": "CalamusTransfer_v0.1.0.zip"
+      "ArtifactSha256": "5910e3022b1b35540b4f7f99840a95d4627e9dd5d4810bdcce0222756e679ac5",
+      "ArtifactEntry": "CalamusTransfer_v0.1.1.zip",
+      "ArtifactUrl": "https://sdmntprnortheu.oaiusercontent.com/files/00000000-5420-81f4-9a49-ed9de428d13f/raw?se=2026-11-11T21%3A05%3A49Z&sp=r&sv=2026-06-06&sr=b&scid=b98e18d2-d1f9-4c4e-8db7-625393153365&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-11T04%3A06%3A58Z&ske=2026-11-12T04%3A06%3A58Z&sks=b&skv=2026-06-06&sig=jKGcbixy42K1PTsDv/vQ751C1zVjszY8GEQqb7yJqXg%3D"
     }
   ]
 }
