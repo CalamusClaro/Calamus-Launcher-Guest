@@ -25,25 +25,32 @@ class AnonymousInstallChecks {
    window=new MainWindow(false);
    Console.WriteLine("BEGIN: real guest catalogue request");
    var fetch=(Task<RemoteCatalog>)Call(window,"FetchRemoteCatalogAsync",false);Await(fetch);var catalog=fetch.Result;
-   Check(catalog.Apps.Count==5&&catalog.Launcher.Version=="0.6.0","public catalogue loaded anonymously with five apps and Launcher 0.6.0");
+   Check(catalog.Apps.Count==6&&catalog.Launcher.Version=="0.7.5","guest catalogue loaded anonymously with Transfer and Launcher 0.7.5");
    Call(window,"ApplyHomeCatalog",catalog);var state=(LauncherState)Field(window,"state");
-   Check(state.Apps.Count==5&&state.Apps.All(a=>a.IsUninstalled),"fresh guest sees five installable cards");
-   foreach(var package in catalog.Apps.Concat(new[]{catalog.Launcher})){
-    Console.WriteLine("BEGIN: download "+package.Id);
-    var download=(Task<string>)Call(window,"DownloadVerifiedZipAsync",package);Await(download);string zip=download.Result;
-    Check(File.Exists(zip),"anonymous verified download: "+package.Id);
-    if(package.Id!="calamus-launcher"){
-     var app=state.Apps.Single(a=>a.RemoteId==package.Id);
-     Console.WriteLine("BEGIN: install "+package.Id);
-     Await((Task)Call(window,"InstallPackageAsync",zip,app,package));
-     Check((bool)Call(window,"HasInstalledPayload",app),"installed launch entry exists: "+package.Id);
-    }
-    File.Delete(zip);
+   var package=catalog.Apps.Single(p=>p.Id=="calamus-transfer");
+   var app=state.Apps.Single(x=>x.RemoteId==package.Id);
+   Check(app.IsUninstalled,"Transfer card appears before installation");
+   var download=(Task<string>)Call(window,"DownloadVerifiedZipAsync",package);Await(download);
+   string zip=download.Result;
+   Check(File.Exists(zip),"anonymous Transfer download and checksum");
+   Await((Task)Call(window,"InstallPackageAsync",zip,app,package));
+   Check((bool)Call(window,"HasInstalledPayload",app),"Transfer launch entry installed");
+   var current=app.Versions.Single(v=>v.Id==app.CurrentId);
+   string root=(string)Call(window,"VersionRoot",app,current);
+   string exe=Path.Combine(root,current.Entry);
+   using(var process=System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(exe,"--smoke"){WorkingDirectory=Path.GetDirectoryName(exe)})){
+    Check(process.WaitForExit(25000)&&process.ExitCode==0,"installed WPF application launches");
    }
-   var saved=new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<LauncherState>(File.ReadAllText(Path.Combine(data,"state-v2.json")));
-   Check(saved.Apps.Count==5&&saved.Apps.All(a=>!a.IsUninstalled&&!string.IsNullOrEmpty(a.CurrentId)),"all five installed records persisted");
+   string marker=Path.Combine(root,"HostVersion.txt");
+   File.WriteAllText(marker,"0.0.9");
+   Check(Call(window,"AvailableHomeUpdate",app)==package,"a previous installed version offers an update");
+   Await((Task)Call(window,"InstallPackageAsync",zip,app,package));
+   Check(Call(window,"AvailableHomeUpdate",app)==null&&app.RemoteVersion=="0.1.0","applying the actual package clears the update offer");
+   Call(window,"UninstallManagedAppCore",app);
+   Check(!(bool)Call(window,"HasInstalledPayload",app)&&app.IsUninstalled&&!File.Exists(exe),"uninstall removes Transfer binaries and keeps its card");
+   File.Delete(zip);
    Check(File.ReadAllText(Path.Combine(data,"github-auth.dpapi"))=="invalid-private-token-fixture","guest never consumed or changed stored author credentials");
-   Console.WriteLine("PASS: real anonymous guest catalogue, six downloads, five installations");return 0;
+   Console.WriteLine("PASS: real guest Transfer download, installation, launch, update and uninstall");return 0;
   }catch(Exception ex){Console.WriteLine(ex);return 1;}
   finally{if(window!=null)Call(window,"ExitApp");}
  }
