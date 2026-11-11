@@ -3,11 +3,11 @@
   "Launcher": {
     "Id": "calamus-launcher",
     "Name": "Calamus Launcher",
-    "Version": "0.7.3",
+    "Version": "0.7.4",
     "Repository": "CalamusClaro/Calamus-Launcher-Guest",
-    "Tag": "calamus-launcher-v0.7.3",
-    "Asset": "CalamusLauncher_v0.7.3.zip",
-    "Sha256": "c087c116bb3e8b5d5fc0061f48721ddea5f38fa3d38efc196153ddba8b636828",
+    "Tag": "calamus-launcher-v0.7.4",
+    "Asset": "CalamusLauncher_v0.7.4.zip",
+    "Sha256": "29c040c9aa96d5b07b88bba437b7d6e865411e837eae91b6b92edd4b3bb10f29",
     "Entry": "CalamusLauncher.exe",
     "Description": "Public guest Launcher update"
   },
