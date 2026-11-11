@@ -83,6 +83,11 @@ def main():
 
     catalogue = {'Schema': 2, 'Launcher': next(i['Package'] for i in imports if i['Package']['Id'] == 'calamus-launcher'), 'Apps': [i['Package'] for i in imports if i['Package']['Id'] != 'calamus-launcher']}
     run('git', 'pull', '--rebase', 'origin', 'main')
+    catalog_path = Path('Distribution/catalog.json')
+    if catalog_path.exists():
+        previous = json.loads(catalog_path.read_text(encoding='utf-8-sig'))
+        if previous.get('Transfer'):
+            catalogue['Transfer'] = previous['Transfer']
     Path('Distribution/catalog.json').write_text(json.dumps(catalogue, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     run('git', 'config', 'user.name', 'github-actions[bot]')
     run('git', 'config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com')

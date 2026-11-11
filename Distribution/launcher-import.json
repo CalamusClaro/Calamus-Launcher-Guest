@@ -4,16 +4,33 @@
       "Package": {
         "Id": "calamus-launcher",
         "Name": "Calamus Launcher",
-        "Version": "0.7.4",
-        "Repository": "CalamusClaro/Calamus-Launcher-Guest",
-        "Tag": "calamus-launcher-v0.7.4",
-        "Asset": "CalamusLauncher_v0.7.4.zip",
-        "Sha256": "29c040c9aa96d5b07b88bba437b7d6e865411e837eae91b6b92edd4b3bb10f29",
+        "Version": "0.7.5",
+        "Tag": "calamus-launcher-v0.7.5",
         "Entry": "CalamusLauncher.exe",
-        "Description": "Public guest Launcher update"
+        "Description": "Public guest Launcher update",
+        "Repository": "CalamusClaro/Calamus-Launcher-Guest",
+        "Asset": "CalamusLauncher_v0.7.5.zip",
+        "Sha256": "401b9725049fc4ccd54b3841fa392665c64d21add2bc527e6cb3d04c12bbf002"
       },
-      "ArtifactSha256": "ba056b94f673a24f226b0d5b0f1f1f937d6b95aeb630850c06aafdaa335273b4",
-      "ArtifactEntry": "CalamusLauncher_v0.7.4.zip"
+      "ArtifactSha256": "86f86b24e43bcf9705e28531fdb26e39ac88ee9e68235d58a7f915d4a4ac2a87",
+      "ArtifactEntry": "CalamusLauncher_v0.7.5.zip",
+      "ArtifactUrl": "https://sdmntprnortheu.oaiusercontent.com/files/00000000-4cf0-81f4-8887-6d33d957132a/raw?se=2026-11-11T20%3A12%3A29Z&sp=r&sv=2026-06-06&sr=b&scid=d59c9ef0-ed0c-48c5-b53a-3e6c6576b58c&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-11T02%3A12%3A57Z&ske=2026-11-12T02%3A12%3A57Z&sks=b&skv=2026-06-06&sig=ONe4qyjUmUmkUnCVjESl1MXyfohetgiPJYU%2BtCHEUbY%3D"
+    },
+    {
+      "Package": {
+        "Id": "calamus-transfer",
+        "Name": "Calamus Transfer",
+        "Version": "0.1.0",
+        "Tag": "calamus-transfer-v0.1.0",
+        "Entry": "CalamusTransfer/CalamusTransfer.exe",
+        "Description": "Прямая передача файлов и папок по TLS",
+        "Repository": "CalamusClaro/Calamus-Launcher-Guest",
+        "Asset": "CalamusTransfer_v0.1.0.zip",
+        "Sha256": "06516f566051ecb63fb480f1c913db70a77c8f5f8f9e2aebe05756b38bddf828"
+      },
+      "ArtifactSha256": "098acbd40d1233dc970bf11dd35de3b9139ce1afed0cdcf93d8450eadce4cfe1",
+      "ArtifactEntry": "CalamusTransfer_v0.1.0.zip",
+      "ArtifactUrl": "https://sdmntpritalynorth.oaiusercontent.com/files/00000000-8170-8246-bc1b-4882cfc2e925/raw?se=2026-11-11T20%3A12%3A35Z&sp=r&sv=2026-06-06&sr=b&scid=d59c9ef0-ed0c-48c5-b53a-3e6c6576b58c&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-11T05%3A47%3A10Z&ske=2026-11-12T05%3A47%3A10Z&sks=b&skv=2026-06-06&sig=hdK8cMBVqWJNOm1Fx6WytoD4b1YDGdaI67/xm27m6qM%3D"
     }
   ]
 }

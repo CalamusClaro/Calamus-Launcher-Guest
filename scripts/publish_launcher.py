@@ -12,7 +12,7 @@ import zipfile
 from pathlib import Path, PurePosixPath
 
 REPO = 'CalamusClaro/Calamus-Launcher-Guest'
-IDS = {'calamus-emoji-studio', 'calamus-capture', 'slayerlog', 'calamus-whisper', 'calamus-proxy', 'calamus-launcher'}
+FIELDS = {'calamus-launcher': 'Launcher', 'calamus-transfer': 'Transfer'}
 
 def run(*args):
     result = subprocess.run(args, check=True, capture_output=True, text=True, encoding='utf-8')
@@ -40,8 +40,8 @@ def main():
     manifest = json.loads(Path('Distribution/launcher-import.json').read_text(encoding='utf-8-sig'))
     imports = manifest['Imports']
     ids = [item['Package']['Id'] for item in imports]
-    if ids != ['calamus-launcher']:
-        raise ValueError('Only Launcher is allowed in this publisher')
+    if not ids or len(ids) != len(set(ids)) or not set(ids) <= FIELDS.keys():
+        raise ValueError('Only Launcher and Transfer releases are accepted')
     if not all(item.get('ArtifactUrl') for item in imports):
         print('Transfer URLs removed after successful publication. Existing releases remain available; provide fresh approved imports for another publication.', flush=True)
         return
@@ -69,7 +69,7 @@ def main():
         (staging / package['Asset']).write_bytes(data)
         print('Verified:', package['Name'], package['Version'], flush=True)
 
-    # All six packages pass verification before the first public upload.
+    # Verify each candidate before starting publication.
     for item in sorted(imports, key=lambda x: x['Package']['Id'] == 'calamus-launcher'):
         package = item['Package']
         tag, asset = package['Tag'], package['Asset']
@@ -85,15 +85,17 @@ def main():
 
     run('git', 'pull', '--rebase', 'origin', 'main')
     catalogue = json.loads(Path('Distribution/catalog.json').read_text(encoding='utf-8-sig'))
-    package = imports[0]['Package']
-    public_url = 'https://github.com/' + REPO + '/releases/download/' + package['Tag'] + '/' + package['Asset']
-    with urllib.request.urlopen(public_url, timeout=90) as response:
-        public_bytes = response.read()
-    if digest(public_bytes) != package['Sha256'].lower():
-        raise ValueError('Anonymous public package verification failed')
-    print('Anonymous release download and checksum passed', flush=True)
-    catalogue['Launcher'] = package
-    manifest['Imports'][0].pop('ArtifactUrl', None)
+    for item in imports:
+        package = item['Package']
+        public_url = 'https://github.com/' + REPO + '/releases/download/' + package['Tag'] + '/' + package['Asset']
+        local_size = (staging / package['Asset']).stat().st_size
+        with urllib.request.urlopen(public_url, timeout=90) as response:
+            public_bytes = response.read(local_size + 1)
+        if len(public_bytes) != local_size or digest(public_bytes) != package['Sha256'].lower():
+            raise ValueError('Anonymous public package verification failed')
+        print('Anonymous release download and checksum passed:', package['Name'], flush=True)
+        catalogue[FIELDS[package['Id']]] = package
+        item.pop('ArtifactUrl', None)
     Path('Distribution/launcher-import.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
     Path('Distribution/catalog.json').write_text(json.dumps(catalogue, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     run('git', 'config', 'user.name', 'github-actions[bot]')
