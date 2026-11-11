@@ -71,12 +71,12 @@
   "Transfer": {
     "Id": "calamus-transfer",
     "Name": "Calamus Transfer",
-    "Version": "0.1.0",
-    "Tag": "calamus-transfer-v0.1.0",
+    "Version": "0.1.1",
+    "Tag": "calamus-transfer-v0.1.1",
     "Entry": "CalamusTransfer/CalamusTransfer.exe",
-    "Description": "Прямая передача файлов и папок по TLS",
+    "Description": "Передача файлов по IP или через Tailscale",
     "Repository": "CalamusClaro/Calamus-Launcher-Guest",
-    "Asset": "CalamusTransfer_v0.1.0.zip",
-    "Sha256": "06516f566051ecb63fb480f1c913db70a77c8f5f8f9e2aebe05756b38bddf828"
+    "Asset": "CalamusTransfer_v0.1.1.zip",
+    "Sha256": "ed990562cecac8e6db2b142631fee91d03ed3ac6068beea0aa7e8d17adc859dc"
   }
 }
