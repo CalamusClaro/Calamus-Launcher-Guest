@@ -46,7 +46,7 @@ def pack_battery(overlay, work, archive):
         <WindowsSdkPackageVersion>10.0.22621.57</WindowsSdkPackageVersion>
         <UseWPF>true</UseWPF>
         <UseWindowsForms>true</UseWindowsForms>
-        <RuntimeFrameworkVersion>10.0.0</RuntimeFrameworkVersion>
+        <TargetLatestRuntimePatch>false</TargetLatestRuntimePatch>
       </PropertyGroup>
     </Project>''', encoding='utf-8')
     (work / 'Program.cs').write_text('internal static class Program { static void Main() { } }', encoding='utf-8')
