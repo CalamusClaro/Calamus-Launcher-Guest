@@ -35,7 +35,8 @@ using System;
 using System.Runtime.InteropServices;
 public static class TraySmokeNative {
     [DllImport("user32.dll", CharSet = CharSet.Unicode)]
-    public static extern IntPtr FindWindow(string className, string name);
+    private static extern IntPtr FindWindow(string className, string name);
+    public static IntPtr FindProxyWindow() { return FindWindow(null, "Calamus ProxyClient"); }
     [DllImport("user32.dll")]
     public static extern bool IsWindowVisible(IntPtr window);
     [DllImport("user32.dll")]
@@ -56,8 +57,11 @@ function Wait-Until($check, $message) {
 }
 $process = Start-Process -FilePath $exe -ArgumentList '--background' -WorkingDirectory $root -PassThru
 try {
-    Wait-Until { [TraySmokeNative]::FindWindow($null, 'Calamus ProxyClient') -ne [IntPtr]::Zero } 'Background process window was not initialized'
-    $handle = [TraySmokeNative]::FindWindow($null, 'Calamus ProxyClient')
+    Wait-Until {
+        if ($process.HasExited) { throw "Background process exited with code $($process.ExitCode)" }
+        [TraySmokeNative]::FindProxyWindow() -ne [IntPtr]::Zero
+    } 'Background process window was not initialized'
+    $handle = [TraySmokeNative]::FindProxyWindow()
     if ([TraySmokeNative]::IsWindowVisible($handle)) { throw 'Background process unexpectedly became visible' }
     $second = Start-Process -FilePath $exe -WorkingDirectory $root -PassThru
     Wait-Until { [TraySmokeNative]::IsWindowVisible($handle) -and $second.HasExited } 'Relaunch failed to reveal the existing process'
@@ -72,6 +76,10 @@ try {
     [void][TraySmokeNative]::PostMessage($handle, 0x0010, [IntPtr]::Zero, [IntPtr]::Zero)
     Wait-Until { ![TraySmokeNative]::IsWindowVisible($handle) } 'Closing after launcher-style restore did not return to tray'
     Write-Host 'Second launch and launcher-style window reveal passed'
+} catch {
+    $log = Join-Path $env:LOCALAPPDATA 'CalamusProxyClient/ui-startup-error.log'
+    if (Test-Path -LiteralPath $log) { Get-Content -LiteralPath $log -Tail 30 }
+    throw
 } finally {
     if (!$process.HasExited) { Stop-Process -Id $process.Id }
     if ($null -ne $second -and !$second.HasExited) { Stop-Process -Id $second.Id }
