@@ -1,0 +1,24 @@
+{
+  "Package": {
+    "Id": "calamus-proxy",
+    "Name": "Calamus ProxyClient",
+    "Version": "0.2.0.8",
+    "Repository": "CalamusClaro/Calamus-Launcher-Guest",
+    "Tag": "calamus-proxy-v0.2.0.8",
+    "Asset": "CalamusProxyClient_v0.2.0.8.zip",
+    "Sha256": "88af3bb1cc771e2b26ee8483419f0836db20aac44da7a3b39da7f1e52fa32e21",
+    "Entry": "CalamusProxyClient.exe",
+    "Description": "Local proxy client and Chrome routing extension"
+  },
+  "Blobs": [
+    "6ee2b32f720d666c53afb42cd3babb8ece67466c",
+    "40f30a66a68a38cee096c8d975140da196b4c098",
+    "ed789a877bca2348c1353fd8edc9a1e96d228982",
+    "1a155fb763497bdb001a7ef0a02e0ecf488b1b8b",
+    "67d168b4af84c055b3b8d2c3b201aacdf145c836",
+    "51bc8e4fae0288fd3a2a02e168d084eea9dfe9d5",
+    "e741bbe2735bde1a2cccc0aeb9c558e8e500b8be",
+    "c6bf636531e51df7dfc3e9f4806b7a416489b78d"
+  ],
+  "SourceCommit": "437093d3da2923e850abbe74589eb29e56abd238"
+}
