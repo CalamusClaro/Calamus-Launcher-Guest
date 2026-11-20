@@ -7,12 +7,11 @@
         "Version": "0.7.6",
         "Tag": "calamus-launcher-v0.7.6",
         "Entry": "CalamusLauncher.exe",
-        "Description": "Установка локальных ZIP в гостевом режиме",
+        "Description": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430 \u043b\u043e\u043a\u0430\u043b\u044c\u043d\u044b\u0445 ZIP \u0432 \u0433\u043e\u0441\u0442\u0435\u0432\u043e\u043c \u0440\u0435\u0436\u0438\u043c\u0435",
         "Repository": "CalamusClaro/Calamus-Launcher-Guest",
         "Asset": "CalamusLauncher_v0.7.6.zip",
         "Sha256": "86577ed4f54235bda9fbf3370b29b3871977c394a718517d283bf8e4b7db49a8"
-      },
-      "PackageBlob": "b885041b16b705884a7f4f8cad7e846d661f94cc"
+      }
     }
   ]
 }

@@ -3,13 +3,13 @@
   "Launcher": {
     "Id": "calamus-launcher",
     "Name": "Calamus Launcher",
-    "Version": "0.7.5",
-    "Tag": "calamus-launcher-v0.7.5",
+    "Version": "0.7.6",
+    "Tag": "calamus-launcher-v0.7.6",
     "Entry": "CalamusLauncher.exe",
-    "Description": "Public guest Launcher update",
+    "Description": "Установка локальных ZIP в гостевом режиме",
     "Repository": "CalamusClaro/Calamus-Launcher-Guest",
-    "Asset": "CalamusLauncher_v0.7.5.zip",
-    "Sha256": "401b9725049fc4ccd54b3841fa392665c64d21add2bc527e6cb3d04c12bbf002"
+    "Asset": "CalamusLauncher_v0.7.6.zip",
+    "Sha256": "86577ed4f54235bda9fbf3370b29b3871977c394a718517d283bf8e4b7db49a8"
   },
   "Apps": [
     {
