@@ -3,13 +3,13 @@
   "Launcher": {
     "Id": "calamus-launcher",
     "Name": "Calamus Launcher",
-    "Version": "0.7.6",
-    "Tag": "calamus-launcher-v0.7.6",
-    "Entry": "CalamusLauncher.exe",
-    "Description": "Установка локальных ZIP в гостевом режиме",
+    "Version": "0.7.7",
     "Repository": "CalamusClaro/Calamus-Launcher-Guest",
-    "Asset": "CalamusLauncher_v0.7.6.zip",
-    "Sha256": "86577ed4f54235bda9fbf3370b29b3871977c394a718517d283bf8e4b7db49a8"
+    "Tag": "calamus-launcher-v0.7.7",
+    "Entry": "CalamusLauncher.exe",
+    "Asset": "CalamusLauncher_v0.7.7.zip",
+    "Description": "Подключение Calamus Bluetooth Battery и обновление уже установленных ZIP-копий",
+    "Sha256": "4b2db8b15696fda9f10216b46cce7d692594575ec771c97363f7ada37aff535a"
   },
   "Apps": [
     {
@@ -78,5 +78,16 @@
     "Repository": "CalamusClaro/Calamus-Launcher-Guest",
     "Asset": "CalamusTransfer_v0.1.1.zip",
     "Sha256": "ed990562cecac8e6db2b142631fee91d03ed3ac6068beea0aa7e8d17adc859dc"
+  },
+  "BluetoothBattery": {
+    "Id": "calamus-bluetooth-battery",
+    "Name": "Calamus Bluetooth Battery",
+    "Version": "0.1.3",
+    "Repository": "CalamusClaro/Calamus-Launcher-Guest",
+    "Tag": "calamus-bluetooth-battery-v0.1.3",
+    "Entry": "CalamusBluetoothBattery/CalamusBluetoothBattery.exe",
+    "Asset": "CalamusBluetoothBattery_v0.1.3_win-x64.zip",
+    "Description": "Windows 11 battery widget. Adds approximate AirPods battery readings over Bluetooth LE.",
+    "Sha256": "da4d6e2dd108c2495e925cbc9e0fec46a6eac069d2a78cbb89e6c0c9e4089629"
   }
 }
