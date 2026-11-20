@@ -1,0 +1,48 @@
+name: Publish ProxyClient tray update
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Distribution/proxy-tray-import.json'
+      - 'scripts/publish_proxy_tray.py'
+      - 'scripts/verify_proxy_tray.ps1'
+      - '.github/workflows/publish-proxy-tray.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: guest-launcher-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: windows-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reassemble and audit the exact ZIP
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/publish_proxy_tray.py stage
+      - name: Verify Windows window and tray lifecycle
+        shell: powershell
+        run: |
+          $testRoot = Join-Path $env:RUNNER_TEMP 'ProxyTrayRelease/test'
+          $tests = Join-Path $testRoot 'Tests'
+          New-Item -ItemType Directory -Path $tests -Force | Out-Null
+          Copy-Item scripts/verify_proxy_tray.ps1 (Join-Path $tests 'VerifyTray.ps1')
+          & (Join-Path $tests 'VerifyTray.ps1')
+      - name: Scan the release with Windows Defender
+        shell: powershell
+        run: |
+          if (!(Get-MpComputerStatus).AntivirusEnabled) { throw 'Defender unavailable' }
+          $root = Join-Path $env:RUNNER_TEMP 'ProxyTrayRelease'
+          $zip = Join-Path $root 'CalamusProxyClient_v0.2.0.8.zip'
+          & "$env:ProgramFiles/Windows Defender/MpCmdRun.exe" -Scan -ScanType 3 -File $zip
+          if ($LASTEXITCODE -ne 0) { throw 'Defender ZIP scan failed' }
+      - name: Publish package and update catalog
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/publish_proxy_tray.py publish
