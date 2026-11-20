@@ -1,4 +1,5 @@
 """Publish only pre-approved clean release ZIPs; no cross-repository credentials."""
+import base64
 import hashlib
 import io
 import json
@@ -42,7 +43,7 @@ def main():
     ids = [item['Package']['Id'] for item in imports]
     if not ids or len(ids) != len(set(ids)) or not set(ids) <= FIELDS.keys():
         raise ValueError('Only Launcher and Transfer releases are accepted')
-    if not all(item.get('ArtifactUrl') for item in imports):
+    if not all(item.get('ArtifactUrl') or item.get('PackageBlob') for item in imports):
         print('Transfer URLs removed after successful publication. Existing releases remain available; provide fresh approved imports for another publication.', flush=True)
         return
     staging = Path(tempfile.mkdtemp(prefix='CalamusGuest-'))
@@ -50,19 +51,28 @@ def main():
         package = item['Package']
         if package['Repository'] != REPO or not re.fullmatch(r'[A-Za-z0-9._-]+\.zip', package['Asset']) or not re.fullmatch(r'[A-Za-z0-9._-]+', package['Tag']):
             raise ValueError('Invalid target package')
-        parsed = urllib.parse.urlsplit(item['ArtifactUrl'])
-        if parsed.scheme != 'https' or not parsed.hostname.endswith('.oaiusercontent.com'):
-            raise ValueError('Unexpected staging host')
-        # No GitHub token is sent to the staging host. These temporary URLs
-        # contain only inspected build artefacts and expire after transfer.
-        with urllib.request.urlopen(item['ArtifactUrl'], timeout=90) as response:
-            wrapper = response.read(1_610_612_737)
-        if len(wrapper) > 1_610_612_736:
-            raise ValueError('Staging archive exceeds limit')
-        if digest(wrapper) != item['ArtifactSha256']:
-            raise ValueError('Build artefact checksum mismatch')
-        with zipfile.ZipFile(io.BytesIO(wrapper)) as archive:
-            data = archive.read(item['ArtifactEntry'])
+        blob = item.get('PackageBlob')
+        if blob:
+            if not re.fullmatch(r'[a-f0-9]{40}', blob):
+                raise ValueError('Invalid Git blob SHA')
+            response = json.loads(run('gh', 'api', 'repos/' + REPO + '/git/blobs/' + blob))
+            if response.get('encoding') != 'base64' or response.get('sha') != blob:
+                raise ValueError('Could not read the staged ZIP')
+            data = base64.b64decode(''.join(response['content'].split()), validate=True)
+        else:
+            parsed = urllib.parse.urlsplit(item['ArtifactUrl'])
+            if parsed.scheme != 'https' or not parsed.hostname.endswith('.oaiusercontent.com'):
+                raise ValueError('Unexpected staging host')
+            # No GitHub token is sent to the staging host. These temporary URLs
+            # contain only inspected build artefacts and expire after transfer.
+            with urllib.request.urlopen(item['ArtifactUrl'], timeout=90) as response:
+                wrapper = response.read(1_610_612_737)
+            if len(wrapper) > 1_610_612_736:
+                raise ValueError('Staging archive exceeds limit')
+            if digest(wrapper) != item['ArtifactSha256']:
+                raise ValueError('Build artefact checksum mismatch')
+            with zipfile.ZipFile(io.BytesIO(wrapper)) as archive:
+                data = archive.read(item['ArtifactEntry'])
         if digest(data) != package['Sha256'].lower():
             raise ValueError('Release ZIP checksum mismatch')
         audit_zip(data)
@@ -96,6 +106,7 @@ def main():
         print('Anonymous release download and checksum passed:', package['Name'], flush=True)
         catalogue[FIELDS[package['Id']]] = package
         item.pop('ArtifactUrl', None)
+        item.pop('PackageBlob', None)
     Path('Distribution/launcher-import.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
     Path('Distribution/catalog.json').write_text(json.dumps(catalogue, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     run('git', 'config', 'user.name', 'github-actions[bot]')
