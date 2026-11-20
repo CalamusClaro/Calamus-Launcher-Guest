@@ -1,0 +1,51 @@
+{
+  "Launcher": {
+    "Package": {
+      "Id": "calamus-launcher",
+      "Name": "Calamus Launcher",
+      "Version": "0.7.7",
+      "Repository": "CalamusClaro/Calamus-Launcher-Guest",
+      "Tag": "calamus-launcher-v0.7.7",
+      "Entry": "CalamusLauncher.exe",
+      "Asset": "CalamusLauncher_v0.7.7.zip",
+      "Description": "Подключение Calamus Bluetooth Battery и обновление уже установленных ZIP-копий"
+    },
+    "Sha256": "4b2db8b15696fda9f10216b46cce7d692594575ec771c97363f7ada37aff535a",
+    "Blobs": [
+      "9d9a30f5cea20f185231503eaa3ef015ea930304",
+      "bf2f5a0210c332eca21079d53335928a081acb3c",
+      "984cc082e89e4bd7f4aa6af9d7896ef6291c637c",
+      "01708fcd034f84dcad485fe6ad0628c861365543",
+      "135ea82cc663d1a0ffb584c35fc93b4e42b94330",
+      "6b4c4a68e555fd3427dcb52b6ec2a7a6094e2427",
+      "ad115daf34ed091ff7fbd06f28830286aab00756",
+      "a92c70e4b68c2f319656f7edde3b18d6a34e8275",
+      "0b1e125e7155e35d11eeded42a07772519819693",
+      "9536a3efcfac0554b7c816485e88ba6cf584fec4",
+      "b94531718b7a4c5e1219b48c1a0391bb041b6ed9",
+      "0f2a65d0bf19a83d8031639e36c039edf19d6d92",
+      "9d0bf5b084f381426248958c78197981aedc8538"
+    ]
+  },
+  "BluetoothBattery": {
+    "Package": {
+      "Id": "calamus-bluetooth-battery",
+      "Name": "Calamus Bluetooth Battery",
+      "Version": "0.1.3",
+      "Repository": "CalamusClaro/Calamus-Launcher-Guest",
+      "Tag": "calamus-bluetooth-battery-v0.1.3",
+      "Entry": "CalamusBluetoothBattery/CalamusBluetoothBattery.exe",
+      "Asset": "CalamusBluetoothBattery_v0.1.3_win-x64.zip",
+      "Description": "Windows 11 battery widget. Adds approximate AirPods battery readings over Bluetooth LE."
+    },
+    "Sha256": "661913136080c0ee7addf934a06fe1e2e047fc891f5fb2c31558f7925dcece4e",
+    "Blobs": [
+      "d834a8171a6933387ff7b7da350a766efa6be520",
+      "0ea5f17e5dd9c6bbbb8e1212c96ef713e7da80ff",
+      "b787470f7669b79c40535e52c2597b2355db2fce",
+      "d98b402f6842d2189b6fc3dd2fb1ece0cd6caac0",
+      "8fe1367820350317dcc4f9d9b3bb84ba54e50819",
+      "743cd464dd1cb7320ad0bac58710af741a0864bd"
+    ]
+  }
+}
