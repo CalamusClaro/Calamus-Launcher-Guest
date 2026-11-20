@@ -1,0 +1,26 @@
+name: Publish Bluetooth Battery and Launcher
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-bluetooth-battery.yml'
+      - 'Distribution/bluetooth-battery-import.json'
+      - 'scripts/publish_bluetooth_battery.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: guest-launcher-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.100'
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/publish_bluetooth_battery.py
