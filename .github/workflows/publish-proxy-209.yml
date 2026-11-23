@@ -1,0 +1,55 @@
+name: Publish ProxyClient 0.2.0.9
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-proxy-209.yml'
+      - 'scripts/publish_proxy_209.py'
+      - 'Distribution/proxy-209-import.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: guest-launcher-publication
+jobs:
+  publish:
+    runs-on: windows-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify the staged source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/publish_proxy_209.py stage
+      - name: Build and verify the Windows application
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $root = Join-Path $env:RUNNER_TEMP 'Proxy209'
+          Set-Location (Join-Path $root 'source')
+          .\BUILD.ps1
+          if ($LASTEXITCODE -ne 0) { throw 'Windows build failed' }
+          .\Tests\VerifyTray.ps1
+          .\Tests\VerifySubscriptionTls.ps1
+          if ($LASTEXITCODE -ne 0) { throw 'TLS tests failed' }
+          .\Tests\VerifyDiscordDpi.ps1
+      - name: Pack and scan the release ZIP
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $root = Join-Path $env:RUNNER_TEMP 'Proxy209'
+          Set-Location (Join-Path $root 'source')
+          $files = @('CalamusProxyClient.exe','CalamusProxyClient.exe.config','App.config','Calamus.ico','TrayWifi.ico','build.version','README_RU.txt','START.bat','BUILD.bat','BUILD.ps1','CalamusProxyClient.Wpf.csproj','src','Core','ChromeExtension','Docs','HostVersion.txt')
+          Set-Content -LiteralPath HostVersion.txt -Value '0.2.0.9' -Encoding ascii
+          $zip = Join-Path $root 'CalamusProxyClient_v0.2.0.9.zip'
+          Compress-Archive -LiteralPath $files -DestinationPath $zip
+          if (!(Get-MpComputerStatus).AntivirusEnabled) { throw 'Defender unavailable' }
+          & "$env:ProgramFiles/Windows Defender/MpCmdRun.exe" -Scan -ScanType 3 -File $zip
+          if ($LASTEXITCODE -ne 0) { throw 'Windows Defender scan failed' }
+      - name: Publish the ZIP and update the Launcher catalog
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/publish_proxy_209.py publish
